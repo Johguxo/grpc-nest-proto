@@ -1,4 +1,6 @@
-syntax = "proto3"
+syntax = "proto3";
+
+package product;
 
 service ProductService {
   rpc CreateProduct (CreateProductRequest) returns (CreateProductResponse) {}
@@ -38,12 +40,14 @@ message FindProductRequest {
 message FindProductResponse {
   int32 status = 1;
   repeated string error = 2;
+  FindProductData data = 3;
 }
 
 //DecreaseStock
 
 message DecreaseStockRequest {
   int32 id = 1;
+  int32 orderId = 2;
 }
 
 message DecreaseStockResponse {
